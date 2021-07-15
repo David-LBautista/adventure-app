@@ -1,12 +1,19 @@
 const navbar = document.querySelector('.navTrigger');
 const mainListDiv = document.querySelector('#mainListDiv');
 const navBar = document.querySelector('.nav');
+const myClass = document.querySelector('.your-class');
+
+//modal
+const modal = document.querySelector('.modal-frame');
+const overlay = document.querySelector('.modal-overlay');
+const open = document.querySelector('.open');
+const close = document.querySelector('.close');
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("documento listo");
-    navbar.addEventListener('click', mostrarMenu)
-
 	
+	opn();
+	close.addEventListener('click', clse);
 });
 
 window.addEventListener('scroll', () => {
@@ -21,4 +28,17 @@ window.addEventListener('scroll', () => {
 function mostrarMenu(){
     navbar.classList.toggle('active');
     mainListDiv.classList.toggle('show_list');
+}
+
+function opn(){
+	overlay.classList.add('state-show');
+	modal.classList.remove('state-leave');
+	modal.classList.add('state-appear');
+}
+
+function clse(){
+
+	overlay.classList.add('state-show');
+	modal.classList.add('state-appear');
+	modal.remove();
 }
